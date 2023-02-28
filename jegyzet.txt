@@ -1,0 +1,16 @@
+Terminátor komponens: 
+- kizárólag csak egy komponenst tartalmazza ami megkapja props-ként a moddels.js adatbázisból a terminátor id, name, serialNumber tulajdonságait valamint kívülről egy link alapján a képet
+
+TerminatorList komponens: 
+- a korábban létrehozott terminátor komponenst használja az importálást után. 
+- mivel a szülőben az App.js-ben már be van importálva a models.js adatbázis így itt nem kell csak meg kell adni props-ként a komponensnek
+- az egyes terminátor komponensek kirenderelése a models adatbázisra meghívott map metódussal történik
+- a map-ben rendereljük ki a Terminator komponenst
+
+SearchBox komponens:
+- az App.js ben megírt onSearchChange metódust kapja meg props-ként az App.js-ben a komponens hívásakor megadott searchChange változónéven keresztül
+
+Metódus: Egy szülő komponens biztosítja a state-et a gyerek komponensnek számára. Az App.js megmondja a TerminátorList komponensnek, hogy a SearchBox komponens alapján mennyi terminátort jelenítsen meg. Ezt a TerminatorList props-ként kapja meg.
+
+App.js:
+- ahhoz, hogy egy osztályalapú komponensben state-t tudjunk használni meg kell hívni az osztály constructor metódusát
