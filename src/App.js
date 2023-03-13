@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+
 //components
 import TerminatorList from "./components/terminator-list/terminator-list.component";
 import SearchBox from "./components/searchbox/searchbox.component";
 
-//függvényszintű komponens
 const App = () => {
   const [models, setModels] = useState([]);
   const [searchfield, setSearchfield] = useState("");
