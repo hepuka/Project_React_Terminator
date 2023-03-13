@@ -1,0 +1,14 @@
+Terminator komponens:
+-Ez a komponens tartalmaz 1 db terminátor elemet, ami tartalmaz egy képet, egy nevet és egy serial számot.
+- A kép a https://robohash.org oldalról jön.
+- A komponens props-ként megkapja a Terminátorlistázó komponenstől, mint szülő komponenstől az id-t amit ide helyezünk be https://robohash.org/${id}?size=180x180 hogy különböző képeket kapjunk, a nevet és a serialszámot.
+
+TerminátorListázó komponens:
+- importálva megkapja a Terminator komponenst
+- props-ként az App-tól, mint szülő komponenstől megkap egy terminatorListProps tömböt, amibe objekumonként benne vannak az egyes terminátorok. Ezeket az objektumokat fogja egyenként kilistázni a Terminátor komponensel.
+- ezt a tömböt bejárjuk egy map-el és visszaadunk egy Terminator komponenst aminek props-nak beállítjuk a key, id, name, serialNumber propokat.
+
+
+SearchBox komponens:
+- props-ként az App-tól, mint szülőtől megkap egy string-et. Ez a string lesz az ami begépelünk a keresőmezőbe
+- 
