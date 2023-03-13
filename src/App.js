@@ -9,6 +9,7 @@ const App = () => {
   const [searchfield, setSearchfield] = useState("");
 
   const onSearchChange = (event) => {
+    //ez a value lesz tárolva a state-ben a searchfield-ben
     setSearchfield(event.target.value);
   };
 

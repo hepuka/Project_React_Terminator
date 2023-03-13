@@ -10,5 +10,11 @@ TerminátorListázó komponens:
 
 
 SearchBox komponens:
-- props-ként az App-tól, mint szülőtől megkap egy string-et. Ez a string lesz az ami begépelünk a keresőmezőbe
-- 
+- props-ként az App-tól, mint szülőtől megkap az eseménykezelőt (onSearchChange) függvényt ami egy string-et ad át. Ez a string lesz az ami begépelünk a keresőmezőbe
+- onChange={searchBoxProps} - itt rendeljük hozzá az App komponens eseménykezelőjét a komponenhez
+- mivel a Reactben csak egyirányú adatfolyam van, így az információk felülről kell, hogy jöjjön. Azonos szintű komponensek nem tudnak egymással kommunikálni. Az App komponensen keresztül fognak kommunikálni a komponensek a state-en keresztül. A state-ben tároljuk a komponens állapotát, ha ez az állapot megváltozik akkor erre fognak reagálni a gyerek komponensek. 
+- A TerminatorList komponens props-ként kapja meg az App state-jétől az információkat
+-onSearchChange függvénnyel mondja meg az App komponens a React-nek, hogy ha megváltozik a kereső tartalma, akkor mit jelenítsen meg.
+
+App.js
+- mint szülő elem a SearchBox és TerminatorList komponenseknek props-ként adja át az eseménykezelőt a SearchBox-nak és egy szűrt tömböt a TerminatorList-nek.
