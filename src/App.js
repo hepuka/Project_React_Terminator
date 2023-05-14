@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-//components
 import TerminatorList from "./components/terminator-list/terminator-list.component";
 import SearchBox from "./components/searchbox/searchbox.component";
 
@@ -9,7 +8,6 @@ const App = () => {
   //kezdőértékként egy üres tömböt adok meg
   const [models, setModels] = useState([]);
   const [searchfield, setSearchfield] = useState("");
-  let [count, setCount] = useState(0);
 
   //console.log(models, searchfield);
 
@@ -20,13 +18,14 @@ const App = () => {
 
   //useEffect egyszer mindig lefut amikor újratöltöm a böngésző ablakát
   //useEffect mindannyiszor meghívódik ahányszor a React újrarendereli a komponenst
+
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((users) => setModels(users));
-
-    //függőségi lista tömbje. Ha ez a paraméter megvan adva akkor ez egy feltételként működik. Ha ebben a tömbben valami változik akkor a useEffect újra lefut. tehát ha azt akarjuk, hogy a useEffect csak egyszer fusson le, akkor meg kell adni egy üres tömböt
   }, []);
+
+  console.log(models);
 
   const filteredModels = models.filter((model) => {
     return model.name.toLowerCase().includes(searchfield.toLowerCase());
@@ -36,24 +35,8 @@ const App = () => {
     return <h1>Betöltés folyamatban...</h1>;
   }
 
-  const up = () => {
-    return setCount(count + 1);
-  };
-  const down = () => {
-    return setCount(count - 1);
-  };
-
-  const reset = () => {
-    return setCount((count = 0));
-  };
-
   return (
     <div className="tc">
-      <h1>Beépített számláló</h1>
-      <h2>{count}</h2>
-      <button onClick={up}>+</button>
-      <button onClick={down}>-</button>
-      <button onClick={reset}>reset</button>
       <h1>Terminator modellek</h1>
       <SearchBox searchBoxProps={onSearchChange} />
       <TerminatorList terminatorListProps={filteredModels} />
